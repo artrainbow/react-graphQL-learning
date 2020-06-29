@@ -1,0 +1,64 @@
+{
+  "name": "react-graphql-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node -r esm server/app.js",
+    "nodemon": "node_modules/.bin/nodemon --exec babel-node --presets @babel/preset-env -- server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://artrainbow@github.com/artrainbow/react-graphQL-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/artrainbow/react-graphQL-learning#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "apollo-boost": "^0.4.9",
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "mongoose": "^5.9.16",
+    "nodemon": "^2.0.4",
+    "react-apollo": "^3.1.5",
+    "react-swipeable-views": "^0.13.9",
+    "recompose": "^0.30.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0"
+  },
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": true
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": false
+      }
+    ],
+    [
+      "babel-plugin-root-import",
+      {
+        "rootPathSuffix": "src",
+        "rootPathPrefix": "@"
+      }
+    ]
+  ]
+}
