@@ -66,7 +66,7 @@ const Mutation = new GraphQLObjectType({
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         genre: { type: new GraphQLNonNull(GraphQLString) },
-        directorId: { type: new GraphQLNonNull(GraphQLID) },
+        directorId: { type: GraphQLID },
         watched: { type: new GraphQLNonNull(GraphQLBoolean) },
         rate: { type: GraphQLInt }
       },
@@ -162,14 +162,16 @@ const Query = new GraphQLObjectType({
     },
     movies: {
       type: new GraphQLList(MovieType),
-      resolve(parent, args) {
-        return Movies.find({});
+      args: { name: { type: GraphQLString } },
+      resolve(parent, { name }) {
+        return Movies.find({ name: { $regex: name, $options: "i" } });
       }
     },
     directors: {
       type: new GraphQLList(DirectorType),
-      resolve(parent, args) {
-        return Directors.find({});
+      args: { name: { type: GraphQLString } },
+      resolve(parent, { name }) {
+        return Directors.find({ name: { $regex: name, $options: "i" } });
       }
     }
   }
